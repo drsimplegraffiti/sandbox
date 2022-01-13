@@ -1,0 +1,7 @@
+   <% if (message) { %>
+                    <div class="alert alert-success" role="alert">
+                        <%= message %>
+                    </div>
+                    <% } %>
+
+use mongoose hooks to hash password

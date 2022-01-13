@@ -1,0 +1,29 @@
+[{
+        "fullName":"adedayo tayo",
+    "stack":"Mern stack: Postgres, Express, Mongodb, React",
+    "email":"sade@yopmail.com",
+    "phoneNumber": "09036292851",
+    "location":"Ibadan",
+    "alias":"codestar",
+    "twitterHandle":"nerdycoder",
+    "serviceProvided":"content-writing",
+    "githubLink":"https://github.com/drsimplegraffiti",
+    "websiteUrl":"google.com",
+    "category": "web development"
+
+    },
+    {
+      "fullName":"sijiade tayo",
+    "stack":"Mern stack: Postgres, Express, Mongodb, React",
+    "email":"tayo1@yopmail.com",
+    "phoneNumber": "09023564786",
+    "location":"sagamu",
+    "alias":"linkstar",
+    "twitterHandle":"shashhh",
+    "serviceProvided":"content-writing",
+    "githubLink":"https://github.com/drsimplegraffiti",
+    "websiteUrl":"google.com",
+    "category": "web development"
+
+    }
+]

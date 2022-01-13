@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="//code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+
+            $('.api_route').click(function() {
+
+                if ($(this).parent().is('.open')) {
+                    $(this).closest('.api').find('.api_response_container').animate({
+                        'height': '0'
+                    }, 500);
+                    $(this).closest('.api').removeClass('open');
+
+                } else {
+                    var newHeight = $(this).closest('.api').find('.api_response').height() + 'px';
+                    $(this).closest('.api').find('.api_response_container').animate({
+                        'height': newHeight
+                    }, 500);
+                    $(this).closest('.api').addClass('open');
+                }
+            });
+        });
+    </script>
+    </script>
+
+
+
+    <!-- copy to clip function -->
+    <script>
+        function myFunction() {
+            var copyText = document.getElementById("myInput");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999); /* For mobile devices */
+            navigator.clipboard.writeText(copyText.value);
+            alert("Copied the text: " + copyText.value);
+        }
+    </script>
+
+    <!-- HTML -->
+    <section id="api" class="api-info">
+        <!-- GET all users -->
+        <div class="api_container">
+
+            <div class="api">
+                <div class="api_route"><i class="tiny material-icons"></i>GET: <input type="text" class="my-input" id="myInput" value="https://kodemonk.herokuapp.com/kodemonk"  disabled><i class="fas fa-chevron-down"></i>
+                </div>
+                
+                <div class="copy-container">
+                <a onclick="myFunction()" class="clipboard-button"><span><i class="far fa-copy 2x"></i></span></a>
+                </div>
+                <div class="api_response_container ">
+                    <div class="api_response ">
+                        <pre>
+{
+    "message": "Success",
+    "data": [
+        {
+            "_id": "6157747923c6f9c65c9c9f86",
+            "name": "abayomi",
+            "stack": "Mern stack: Node, Express, Mongodb, React",
+            "createdAt": "2021-10-01T20:50:01.814Z",
+            "updatedAt": "2021-10-01T20:50:01.814Z",
+            "__v": 0
+        }
+    ]
+}
+            </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- POST user -->
+        <div class="api_container">
+            <div class="api">
+                <div class="api_route"><i class="tiny material-icons"></i>POST: <input type="text" class="my-input" value=" https://kodemonk.herokuapp.com/kodemonk " disabled><i class="fas fa-chevron-down"></i></div>
+                <a onclick="myFunction()" class="clipboard-button"><span><i class="far fa-copy 2x"></i></span></a>
+                <div class="api_response_container ">
+                    <div class="api_response ">
+                        <pre>
+{
+    "message": "success",
+    "data": {
+        "fullName": "adedayo oluwasegun",
+        "username": "lilo",
+        "category": [
+            "web development"
+        ],
+        "stack": "Mern stack: Postgres, Express, Mongodb, React",
+        "serviceProvided": "content-writing",
+        "location": "lagos",
+        "alias": "codemon",
+        "email": "titi@yopmail.com",
+        "twitterHandle": "nerdycoder",
+        "githubLink": "https://github.com/drsimplegraffiti",
+        "websiteUrl": "google.com",
+        "phoneNumber": "09036292851",
+        "_id": "616821b9d258559dcf95880c",
+        "createdAt": "2021-10-14T12:25:38.011Z",
+        "updatedAt": "2021-10-14T12:25:38.011Z",
+        "__v": 0
+    }
+}
+</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Get user by ID-->
+        <div class="api_container">
+            <div class="api">
+                <div class="api_route"><i class="tiny material-icons"></i>GET: <input type="text" class="my-input" value=" https://kodemonk.herokuapp.com/kodemonk/:id " disabled><i class="fas fa-chevron-down"></i></div>
+                <a onclick="myFunction()" class="clipboard-button"><span><i class="far fa-copy 2x"></i></span></a>
+                <div class="api_response_container ">
+                    <div class="api_response ">
+                        <pre>
+{
+    "status": "success",
+    "data": {
+        "_id": "616821b9d258559dcf95880c",
+        "fullName": "adedayo oluwasegun",
+        "username": "lilo",
+        "category": [
+            "web development"
+        ],
+        "stack": "Mern stack: Postgres, Express, Mongodb, React",
+        "serviceProvided": "content-writing",
+        "location": "lagos",
+        "alias": "codemon",
+        "email": "titi@yopmail.com",
+        "twitterHandle": "nerdycoder",
+        "githubLink": "https://github.com/drsimplegraffiti",
+        "websiteUrl": "google.com",
+        "phoneNumber": "09036292851",
+        "createdAt": "2021-10-14T12:25:38.011Z",
+        "updatedAt": "2021-10-14T12:25:38.011Z",
+        "__v": 0
+    }
+}
+</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Update user by ID-->
+        <div class="api_container">
+            <div class="api">
+                <div class="api_route"><i class="tiny material-icons"></i>UPDATE: <input type="text" class="my-input" value=" https://kodemonk.herokuapp.com/kodemonk/:id " disabled><i class="fas fa-chevron-down"></i></div>
+                <a onclick="myFunction()" class="clipboard-button" id="clip-button"><span><i class="far fa-copy 2x"></i></span></a>
+                <div class="api_response_container ">
+                    <div class="api_response ">
+                        <pre>
+{
+    "fullName":"tope",
+    "stack":"Mern stack: Node, Express, Mongodb, React",
+    "email":"titi@yopmail.com",
+    "phoneNumber":9099999999,
+    "location":"lagos",
+    "alias":"emmyCode",
+    "twitterHandle":"drsimplegraffi1",
+    "serviceProvided":"debugging"
+
+}
+</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <!-- DELETE user by ID-->
+        <div class="api_container">
+            <div class="api">
+                <div class="api_route"><i class="tiny material-icons"></i>DELETE: <input type="text" class="my-input" value=" https://kodemonk.herokuapp.com/kodemonk/:id " disabled><i class="fas fa-chevron-down"></i></div>
+                <a onclick="myFunction()" class="clipboard-button"><span><i class="far fa-copy 2x"></i></span></a>
+                <div class="api_response_container ">
+                    <div class="api_response ">
+                        <pre>
+{
+    "fullName":"tope",
+    "stack":"Mern stack: Node, Express, Mongodb, React",
+    "email":"titi@yopmail.com",
+    "phoneNumber":9099999999,
+    "location":"lagos",
+    "alias":"emmyCode",
+    "twitterHandle":"drsimplegraffi1",
+    "serviceProvided":"debugging"
+
+}
+</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+        <!-- Get aggreagate user -->
+        <div class="api_container">
+            <div class="api">
+                <div class="api_route"><i class="tiny material-icons"></i>TOTAL: <input type="text" class="my-input" value=" https://kodemonk.herokuapp.com/kodemonk/aggregate-user" disabled><i class="fas fa-chevron-down"></i></div>
+                <a onclick="myFunction()" class="clipboard-button"><span><i class="far fa-copy 2x"></i></span></a>
+                <div class="api_response_container ">
+                    <div class="api_response ">
+                        <pre>
+{
+    "status": "success",
+    "totalUserCreated": 6
+}
+
+</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- jquery -->
+
+
+
+</body>
+
+</html>
+
+</html>

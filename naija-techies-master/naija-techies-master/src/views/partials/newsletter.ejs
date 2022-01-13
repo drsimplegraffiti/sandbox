@@ -1,0 +1,44 @@
+<form action="/kodemonk/subscribe" method="POST">
+
+    <section>
+        <div class="newsletter">
+            <label for="newsleter">Subscribe to our News Letter</label> <br>
+            <input class="newsletter-input" type="email" placeholder="user@gmail.com" name="email"><br>
+            <button class="subscribe-btn">Subscribe</button>
+
+        </div>
+    </section>
+</form>
+
+
+
+
+<script>
+    const form = document.querySelector('form');
+
+    form.addEventListener('submit', async(e) => {
+        e.preventDefault();
+
+        // get values
+        const email = form.email.value;
+
+        try {
+            const res = await fetch('/kodemonk/subscribe', {
+                method: 'POST',
+                body: JSON.stringify({
+                    email
+                }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            const data = await res.json();
+            console.log(data);
+            if (data.user) {
+                location.assign('/success');
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    });
+</script>

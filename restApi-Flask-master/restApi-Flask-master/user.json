@@ -1,0 +1,22 @@
+[{
+  "_id": {
+    "$oid": "614688860d84647ba0bed0c3"
+  },
+  "name": "joseh",
+  "email": "abay@gmail.com",
+  "pwd": "pbkdf2:sha256:260000$P4xwOvB3b4o7Rh36$4233ed86eacfce4c1defc966805c92fa19891ca336020610cd5ef491ac6dda19"
+},{
+  "_id": {
+    "$oid": "61468c6ec8b855073062c800"
+  },
+  "name": "victor",
+  "email": "vicopem@gmail.com",
+  "pwd": "pbkdf2:sha256:260000$Ncm0I2NWCnaZNG60$18ffb652dd5afafc4c49158c6dfe34adddc2f0a5863a275f1603dce07df70a0f"
+},{
+  "_id": {
+    "$oid": "61468c7cc8b855073062c801"
+  },
+  "name": "godwin",
+  "email": "gody@gmail.com",
+  "pwd": "pbkdf2:sha256:260000$q55Sa6Za3yrp9POE$c6eaa5a077d625f10d25c2837166b5ab976293e1a62c6aeb51ca225f3bffab6b"
+}]

@@ -1,0 +1,19 @@
+json === Javascript Object Notation
+use query parameter to output a single post
+? with key value pair
+
+<a href="/details.html?id=${post.id}"></a>
+
+sorting
+'http://localhost:3000/posts?_sort=likes&_order=desc
+it makes sense to ort by number
+
+
+
+echo "# json-server" >> README.md
+git init
+git add .
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/drsimplegraffiti/json-server.git
+git push -u origin main

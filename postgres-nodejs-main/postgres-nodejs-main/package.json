@@ -1,0 +1,22 @@
+{
+  "name": "postgres-nodejs",
+  "version": "1.0.0",
+  "description": "postgresql nodejs ",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon app.js"
+  },
+  "keywords": [
+    "postgres"
+  ],
+  "author": "abayomi ogunnusi",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "pg": "^8.7.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}

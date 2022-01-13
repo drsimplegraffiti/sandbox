@@ -1,0 +1,11 @@
+Install express and dotenv
+npm i dotenv express
+
+Install concurrently nodemon and concurrently
+npm i --save-dev nodemon concurrently 
+
+Set up main branch
+git branch -m <name of branch> //this renames git from master to main
+git branch -m main
+
+https://passwordsgenerator.net/

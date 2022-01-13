@@ -1,0 +1,40 @@
+const fetchSingleTechie = await Techie.findById(req.params.id); is equivalent to Techie.findOne({_id: req.params.id})
+Run seeders: node  src/data/importDevData.js --import
+Run seeders: node  src/data/importDevData.js --delete
+
+Query strings => ?<key>=<value>&<key>=<value>
+console.log(req.query);
+Filtering objects methods (query)
+1) Tour.find({duration: 4, difficulty: "medium"})
+2)Tour.find()
+    .where('duration').equals(5)
+    .where.(difficulty).equals('medium')
+3)const allTechies = await Techie.find(req.query);
+
+
+// Handling Unhandle routes
+app.all('*', (req,res,next)=>{
+    res.status(404).json({
+        status:fail,
+        message: `Cant find ${req.originalUrl}  on this server`
+    })
+})
+
+
+
+// Error Handling
+// global error handling middleware
+const err = new Error(`Can't find ${req.originalUrl} on this server`);
+err.status = 'fail';
+err.statusCode = 404;
+    next(err);
+
+// global error handling middleware
+app.use((err, req, res, next)=>{
+    err.statusCode = err.statusCode || 500;
+    err.status = err.status || 'error'
+    res.status(err.statusCode).json({
+        status:err.status,
+        message:err.message
+    });
+})

@@ -1,0 +1,22 @@
+{
+    "name": "nodejs_nodb",
+    "version": "1.0.0",
+    "description": "nodejs restful api with no database",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+        "dev": "nodemon index.js",
+        "start": "node index.js"
+    },
+    "author": "abayomi ogunnusi",
+    "license": "ISC",
+    "devDependencies": {
+        "nodemon": "^2.0.13"
+    },
+    "dependencies": {
+        "dotenv": "^10.0.0",
+        "express": "^4.17.1",
+        "morgan": "^1.10.0",
+        "uuid": "^8.3.2"
+    }
+}
