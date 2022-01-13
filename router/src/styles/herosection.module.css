@@ -1,0 +1,44 @@
+section {
+    position: relative;
+}
+
+.main_style {
+    /* margin-top: 6rem; */
+    text-align: center;
+    color: #12082d;
+    max-width: fit-content;
+    /* position: relative; */
+    /* z-index: 10; */
+}
+
+h2 {
+    font-size: 6rem;
+    z-index: 1;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+p {
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    color: #12082d;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    letter-spacing: 4px;
+    font-weight: 300;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.main_img {
+    height: 100%;
+    width: 100%;
+    filter: blur(2px);
+}

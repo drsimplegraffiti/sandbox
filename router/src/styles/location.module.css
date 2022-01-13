@@ -1,0 +1,17 @@
+.section_container {
+    position: inherit;
+    height: 100vh;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.locationContainer {
+    padding: 0;
+    margin: 0;
+}
+
+.location_text {
+    margin: 0;
+    padding: 0;
+}

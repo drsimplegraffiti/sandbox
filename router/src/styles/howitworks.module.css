@@ -1,0 +1,33 @@
+.container {
+    height: 100vh;
+}
+
+.main_heading {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+    text-transform: uppercase;
+    color: #FFD700;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.booking_details {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2%;
+    font-size: 3rem;
+    color: #12082d;
+}
+
+.content {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2%;
+    color: #858590;
+    line-height: 1.5;
+    font-size: .85rem;
+}
