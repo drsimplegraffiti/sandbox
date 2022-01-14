@@ -3,12 +3,6 @@ import axios from "axios";
 import { useForm } from "react-hook-form";
 
 const Login = () => {
-  const { reset } = useForm({
-    defaultValues: {
-      email: "",
-      password: "",
-    },
-  });
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -62,16 +56,7 @@ const Login = () => {
           onChange={addPassword}
         />
         <br />
-        <button
-          onClick={() => {
-            reset({
-              email: "",
-              password: "",
-            });
-          }}
-        >
-          submit
-        </button>
+        <button>submit</button>
       </form>
     </div>
   );
