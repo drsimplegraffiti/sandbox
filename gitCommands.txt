@@ -1,0 +1,4 @@
+
+Open files to windows explorer => start .
+Create a new  file => echo > file.js
+start file in default programs => start <filename>
