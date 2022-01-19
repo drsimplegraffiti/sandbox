@@ -30,3 +30,44 @@ print(my_sort)
 copy_number=[3,4,5,2]
 copied_number=copy_number.copy
 print(copied_number)
+
+
+countries=['Germany', 'London','Nigeria', 'Canada']
+print(countries[-1]) # Negative index
+print(countries[0:1]) # Slicing list_name[start:stop]
+print(countries[1:])
+print(countries[:1])
+
+
+#Appned to list
+animals =['lion','tiger']
+animals.append('monkey')
+print(animals)
+
+
+## Insert at a position
+computer =['mac','HP', 'dell']
+computer.insert(1, 'Asus')
+print(computer)
+
+
+
+# Concatenate arrays: i.e nested list
+print(animals + computer)
+
+
+# Removing elements
+remove_fish = ['shark', 'whale', 'dolphin']
+remove_fish.remove('whale')
+print(remove_fish)
+
+
+# Removing elements
+remove_dog = ['mastiff', 'bull dog', 'Rot']
+remove_dog.pop(-1)
+print(remove_dog)
+
+# Remove el using del method
+card=['blue', 'green','yellow']
+del card[0]
+print(card)
