@@ -1,5 +1,5 @@
 customer = {
-    "name":"joe",
+    "name":"joel",
     "age":7,
     "is_verified":True
 }
