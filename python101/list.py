@@ -71,3 +71,40 @@ print(remove_dog)
 card=['blue', 'green','yellow']
 del card[0]
 print(card)
+
+# Convert strings to list
+convert_to_string = ["""covert this to string
+ and this too"""]
+final_result= list(convert_to_string)
+print(final_result)
+
+
+multiline_string = """a
+b"""
+print(multiline_string)
+print(list(multiline_string))
+
+## Accessing characters
+my_real_name = 'James Bond'
+print(my_real_name[2])
+
+today = 'Saturday'
+print(today[5:8]) # Ranges in python
+
+# Check 
+print('day' in today)
+
+
+# List type
+joined = ['bobby', 1, 3<=4, True]
+print(joined)
+print(len(joined))
+
+
+# Accessing list
+access_me = ['MOn', 'Tues', 'Wed']
+print(access_me[0])
+
+
+# If you try to access an index equal to or higher than the length of the list, Python returns an IndexError.
+print(access_me[6]) # This will result in Error (IndexError: list index out of range)
