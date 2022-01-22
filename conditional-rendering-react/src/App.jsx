@@ -2,9 +2,10 @@
 import "./App.css";
 // import { Cat, Choose } from "./components/Choose";
 import Login from "./components/Login";
+import Fetching from "./Fetching";
 import Loading from "./Loading";
 import SearchFilter from "./SearchFilter";
-import SearchFilter2 from "./SearchFilter2";
+// import SearchFilter2 from "./SearchFilter2";
 
 function App() {
   // const [toggle, setIsToggle] = useState(false);
@@ -14,6 +15,7 @@ function App() {
       {/* <SearchFilter /> */}
       {/* <SearchFilter2 /> */}
       <Loading />
+      <Fetching />
     </div>
   );
 }
