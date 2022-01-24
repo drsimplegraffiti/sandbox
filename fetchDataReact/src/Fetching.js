@@ -16,10 +16,13 @@ function Fetching() {
   }, []);
   return (
     <div className="output">
-    <h1>Data Fetching </h1>
+      <h1>Data Fetching </h1>
       <ul>
         {posts.map((post) => (
-          <li key={post.id}>{post.title}</li>
+          <li key={post.id}>
+            <p>Post id: {post.id}</p>
+            {post.title}
+          </li>
         ))}
       </ul>
     </div>

@@ -41,6 +41,12 @@ li {
     color: #fff;
 }
 
+.output p {
+    color: tomato;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
 .App-header {
     background-color: #282c34;
     min-height: 100vh;
