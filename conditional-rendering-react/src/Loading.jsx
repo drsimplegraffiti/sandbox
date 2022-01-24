@@ -17,15 +17,6 @@ const Loading = () => {
   console.log(loading);
   console.log(studentList);
   return (
-    // <div>
-    //   {loading ? (
-    //     studentList.map((studentList) => {
-    //       return <ListItem key={studentList.id} studentList={studentList} />;
-    //     })
-    //   ) : (
-    //     <Loading />
-    //   )}
-    // </div>
     <div>
       {loading ? (
         studentList.map((studentList) => {
