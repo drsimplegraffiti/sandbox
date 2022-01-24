@@ -70,7 +70,7 @@ const App = () => {
       headers: headers,
     });
     console.log(newItem);
-    toast.success("Success");
+    toast.success("Success, Items added successfully");
 
     // alert("item added");
     setItem({
@@ -100,6 +100,7 @@ const App = () => {
     axios.put("http://localhost:3001/put/" + id, updatedItem);
     alert("item updated successfully");
     console.log(`item with id ${id} updated`);
+    toast.success("Success, Items added successfully");
   };
 
   const handleUpdate = (event) => {
