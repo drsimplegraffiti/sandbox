@@ -74,7 +74,7 @@ const App = () => {
   const deleteItem = (id) => {
     axios.delete("http://localhost:3001/delete/" + id);
     alert("item deleted");
-    console.log(`Deleted Item with id ${id}`);
+    console.log(`Deleted Item with : ${id}`);
   };
 
   const openUpdate = (id) => {
