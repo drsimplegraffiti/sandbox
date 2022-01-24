@@ -2,6 +2,9 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const App = () => {
   const [item, setItem] = useState({
     title: "",
@@ -35,6 +38,10 @@ const App = () => {
       })
       .then((jsonRes) => setItems(jsonRes))
       .catch((err) => console.log(err));
+
+    // toast.warn("warn");
+    // toast.info("info");
+    // toast.error("error");
   }, [items]);
 
   const handleChange = (event) => {
@@ -63,7 +70,9 @@ const App = () => {
       headers: headers,
     });
     console.log(newItem);
-    alert("item added");
+    toast.success("Success");
+
+    // alert("item added");
     setItem({
       title: "",
       description: "",
@@ -123,6 +132,7 @@ const App = () => {
           />
           <br />
           <button onClick={addItem}> Add Item</button>
+          <ToastContainer />
         </div>
       ) : (
         <div className="container">

@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const morgan = require('morgan');
+// const morgan = require('morgan');
 const port = 3001;
 
 
@@ -13,7 +13,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(morgan('dev'));
+// app.use(morgan('dev'));
 
 
 
@@ -70,22 +70,6 @@ app.delete('/delete/:id', async(req, res) => {
         return res.status(500).json('server error')
     }
 });
-
-
-
-//update
-// app.put('/put/:id', async(req, res) => {
-//     try {
-//         const updatedItem = {
-//             title: req.body.title,
-//             description: req.body.description,
-//         }
-//         await Item.findByIdAndUpdate({ _id: req.params.id }, { $set: updatedItem })
-//     } catch (error) {
-//         console.log(error);
-//         return res.status(500).json('server error')
-//     }
-// })
 
 
 
