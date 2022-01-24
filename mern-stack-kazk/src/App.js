@@ -146,12 +146,29 @@ const App = () => {
         </div>
       )}
 
+      {/*  */}
+
+      {/*  */}
       {items.map((item) => {
         return (
           <div key={item._id} className="container">
-            <p>{item.title}</p>
-            <p>{item.description}</p>
-            <button onClick={() => deleteItem(item._id)}>Delete</button>
+            {/* <p>{item.title}</p>
+            <p>{item.description}</p> */}
+            <table id="tableContainer">
+              <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Item Id</th>
+              </tr>
+              <tr>
+                <td>{item.title}</td>
+                <td>{item.description}</td>
+                <td>{item._id}</td>
+              </tr>
+            </table>
+            <button className="deleteBtn" onClick={() => deleteItem(item._id)}>
+              Delete
+            </button>
             <button onClick={() => openUpdate(item._id)}>Update</button>
           </div>
         );
