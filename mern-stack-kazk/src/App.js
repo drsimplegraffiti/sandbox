@@ -125,8 +125,9 @@ const App = () => {
           <button onClick={addItem}> Add Item</button>
         </div>
       ) : (
-        <div>
+        <div className="container">
           <input
+            type="text"
             name="title"
             onChange={handleUpdate}
             value={updatedItem.title}
@@ -134,6 +135,7 @@ const App = () => {
           />
           <br />
           <input
+            type="text"
             onChange={handleUpdate}
             name="description"
             value={updatedItem.description}
