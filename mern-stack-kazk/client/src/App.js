@@ -193,7 +193,7 @@ const App = () => {
                 <tr>
                   <td>{item.title}</td>
                   <td>{item.description}</td>
-                  <td>{item._id.slice(0,4)}</td>
+                  <td>{item._id.slice(0,6)}</td>
                 </tr>
               </table>
               <button
