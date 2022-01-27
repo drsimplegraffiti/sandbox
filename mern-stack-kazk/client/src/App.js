@@ -2,6 +2,7 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Loader from "./Loader";
+import {FaEdit, FaTimes, FaArrowLeft, FaArrowRight, FaPlus} from 'react-icons/fa';
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -134,26 +135,27 @@ const App = () => {
   return (
     <div className="App">
       <h1>
-        <a href="/">Todo App</a>
+        <a href="/">ProgreX</a>
       </h1>
-      <h3>Page of: {pageNumber + 1}</h3>
+      
       {!isPut ? (
         <div>
           <input
             name="title"
             onChange={handleChange}
             value={item.title}
-            placeholder="enter a title here...."
+            placeholder="Enter a title here...."
           />
           <br />
           <input
             onChange={handleChange}
             name="description"
             value={item.description}
-            placeholder="enter a description here...."
+            placeholder="Enter description here...."
           />
           <br />
-          <button onClick={addItem}> Add Item</button>
+          <h3>Page of: {pageNumber + 1}</h3>
+          <button className="add_btn" onClick={addItem}>Add<FaPlus /> </button>
           <ToastContainer />
         </div>
       ) : (
@@ -174,7 +176,7 @@ const App = () => {
             placeholder="enter a description here...."
           />
           <br />
-          <button onClick={() => updateItem(updatedItem.id)}>Edit Item</button>
+          <button onClick={() => updateItem(updatedItem.id)}>Update</button>
           <ToastContainer />
         </div>
       )}
@@ -188,7 +190,7 @@ const App = () => {
                 <tr>
                   <th>Title</th>
                   <th>Description</th>
-                  <th>Item Id</th>
+                  <th> Id</th>
                 </tr>
                 <tr>
                   <td>{item.title}</td>
@@ -200,9 +202,9 @@ const App = () => {
                 className="deleteBtn"
                 onClick={() => deleteItem(item._id)}
               >
-                Delete
+                <FaTimes />
               </button>
-              <button onClick={() => openUpdate(item._id)}>Update</button>
+              <button onClick={() => openUpdate(item._id)}><FaEdit /></button>
             </div>
           );
         })
@@ -210,13 +212,13 @@ const App = () => {
         <Loader />
       )}
       <div className="button-styles">
-      <button onClick={gotoPrevious}>previous</button>
+      <button onClick={gotoPrevious}><FaArrowLeft /></button>
       {pages.map((pageIndex) => (
         <button key={pageIndex} onClick={() => setPageNumber(pageIndex)}>
           {pageIndex + 1}
         </button>
       ))}
-      <button onClick={gotoNext}>next</button>
+      <button onClick={gotoNext}><FaArrowRight /></button>
       </div>
     </div>
   );

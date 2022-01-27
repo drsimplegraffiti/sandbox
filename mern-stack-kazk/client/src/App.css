@@ -1,14 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
 .App {
     text-align: center;
+
 }
 
 .App h1 a {
     color: #fff;
     text-decoration: none;
+    font-family: 'Raleway', sans-serif;
 }
 
 .App h3 {
     color: #fff;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .App-logo {
@@ -58,13 +64,21 @@ input::placeholder {
     font-size: 18px;
     text-align: center;
     word-spacing: normal;
+    text-align: left;
+}
+
+.add_btn {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
 }
 
 button {
-    height: 50px;
+    text-align: center;
+    height: 40px;
     margin: 20px;
     background-color: #4CAF50;
-    /* Green */
+    font-family: 'Raleway', sans-serif;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -73,6 +87,8 @@ button {
     display: inline-block;
     font-size: 16px;
     border-radius: 5px;
+    justify-content: center;
+    align-items: center;
 }
 
 button:hover {
@@ -83,14 +99,22 @@ button:hover {
 
 .container {
     background-color: hsl(189, 70%, 19%);
-    /* height: 20px; */
+    margin-bottom: 15px !important;
     width: 50%;
     margin: auto;
     border-radius: 5px;
+    font-family: 'Raleway', sans-serif;
+    /* height: 145px; */
+
 }
 
 .container p {
     color: #fff;
+}
+
+.container tr {
+    text-align: left;
+
 }
 
 input[type=text] {
@@ -197,22 +221,33 @@ input[type=text] {
 }
 
 @media screen and (max-width: 600px) {
-   .App{
-       max-width: 350px;
-       margin: 0 auto;
-       width: 100vw;
-   }
-    .container{
+    .App {
+        max-width: 350px;
+        margin: 0 auto;
+        width: 100vw;
+    }
+
+    a:hover {
+        color: tomato;
+    }
+
+    .container {
         width: 350px;
         margin: 0 auto;
     }
-     #tableContainer {
-     max-width: 350px;
-     margin: 0 auto;
-     width: 300px;
+
+    #tableContainer {
+        max-width: 350px;
+        margin: 0 auto;
+        width: 300px;
     }
-    
-    button{
+
+    button {
         height: 40px;
-    } 
-  }
+    }
+
+    input {
+        height: 35px;
+        width: 320px;
+    }
+}
