@@ -195,3 +195,24 @@ input[type=text] {
 .button-styles button:hover {
     background-color: tomato;
 }
+
+@media screen and (max-width: 600px) {
+   .App{
+       max-width: 350px;
+       margin: 0 auto;
+       width: 100vw;
+   }
+    .container{
+        width: 350px;
+        margin: 0 auto;
+    }
+     #tableContainer {
+     max-width: 350px;
+     margin: 0 auto;
+     width: 300px;
+    }
+    
+    button{
+        height: 40px;
+    } 
+  }

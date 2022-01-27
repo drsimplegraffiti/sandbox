@@ -35,7 +35,7 @@ const App = () => {
   const pages = new Array(numberOfPages).fill(null).map((v, i) => i);
 
   useEffect(() => {
-    fetch(`http://localhost:4000/items?page=${pageNumber}`)
+    fetch(`/items?page=${pageNumber}`)
       .then((res) => {
         console.log("loading....");
         if (res.ok && res !== "") {
@@ -83,7 +83,7 @@ const App = () => {
       "Content-Type": "application/json",
       "Access-Control-Allow-Origin": "*",
     };
-    axios.post("http://localhost:4000/new-item", newItem, {
+    axios.post("/new-item", newItem, {
       headers: headers,
     });
     console.log(newItem);
@@ -98,7 +98,7 @@ const App = () => {
 
   // delete item
   const deleteItem = (id) => {
-    axios.delete("http://localhost:4000/delete/" + id);
+    axios.delete("/delete/" + id);
     alert("item deleted");
     console.log(`Deleted Item with : ${id}`);
   };
@@ -114,7 +114,7 @@ const App = () => {
   };
 
   const updateItem = (id) => {
-    axios.put("http://localhost:4000/put/" + id, updatedItem);
+    axios.put("/put/" + id, updatedItem);
     alert("item updated successfully");
     console.log(`item with id ${id} updated`);
     toast.success("Success, Items updated successfully");
@@ -134,7 +134,7 @@ const App = () => {
   return (
     <div className="App">
       <h1>
-        <a href="/">CRUD</a>
+        <a href="/">Todo App</a>
       </h1>
       <h3>Page of: {pageNumber + 1}</h3>
       {!isPut ? (
@@ -184,7 +184,7 @@ const App = () => {
         items.map((item) => {
           return (
             <div key={item._id} className="container">
-              <table id="tableContainer">
+              <table id="tableContainer" className="table_container">
                 <tr>
                   <th>Title</th>
                   <th>Description</th>
@@ -193,7 +193,7 @@ const App = () => {
                 <tr>
                   <td>{item.title}</td>
                   <td>{item.description}</td>
-                  <td>{item._id}</td>
+                  <td>{item._id.slice(0,4)}</td>
                 </tr>
               </table>
               <button

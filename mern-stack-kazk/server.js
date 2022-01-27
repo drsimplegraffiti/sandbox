@@ -1,7 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const path = require("path");
 const cors = require("cors");
-require('dotenv').config();
+require("dotenv").config();
 const { PORT } = process.env;
 
 //initiate app
@@ -15,8 +16,9 @@ app.use(express.urlencoded({ extended: false }));
 const port = process.env.PORT || 4000;
 
 //connect to db
-mongoose.connect(process.env.MONGO_URI ||
-  "mongodb+srv://drsimplegraffiti:admin1234@godan.minj6.mongodb.net/godan-info?retryWrites=true&w=majority",
+mongoose.connect(
+  process.env.MONGO_URI ||
+    "mongodb+srv://drsimplegraffiti:admin1234@godan.minj6.mongodb.net/godan-info?retryWrites=true&w=majority",
   () => {
     console.log("connected to db");
   }
@@ -26,7 +28,7 @@ mongoose.connect(process.env.MONGO_URI ||
 const itemSchema = {
   title: String,
   description: String,
-  createdAt: {type: Date, default: Date.now}
+  createdAt: { type: Date, default: Date.now },
 };
 //data model
 const Item = mongoose.model("Item", itemSchema);
@@ -40,7 +42,7 @@ app.get("/items", async (req, res) => {
     const items = await Item.find()
       .limit(PAGE_SIZE)
       .skip(PAGE_SIZE * page)
-      .sort({createdAt:-1})
+      .sort({ createdAt: -1 });
     return res
       .status(200)
       .json({ items, totalPages: Math.ceil(total / PAGE_SIZE) });
@@ -97,9 +99,16 @@ app.put("/put/:id", (req, res) => {
   );
 });
 
+
+
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, './client/build', 'index.html'));
+});
+
 // HEROKU LOGIN
-if(process.env.NODE_ENV === 'production'){
-    app.use(express.static('./client/build'))
+if (process.env.NODE_ENV === "production") {
+  // app.use(express.static('./client/build'))
+  app.use(express.static(path.join(__dirname, "./client/build")));
 }
 
 //listen to server
