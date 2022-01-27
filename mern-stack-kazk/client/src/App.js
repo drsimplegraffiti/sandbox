@@ -1,6 +1,5 @@
 import "./App.css";
 import { useState, useEffect } from "react";
-import ReactPaginate from "react-paginate";
 import axios from "axios";
 import Loader from "./Loader";
 
@@ -8,6 +7,8 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
+  const [pageNumber, setPageNumber] = useState(0);
+  const [numberOfPages, setNumberOfPages] = useState(0);
   const [loading, setLoading] = useState(false);
   const [item, setItem] = useState({
     title: "",
@@ -23,14 +24,6 @@ const App = () => {
     },
   ]);
 
-  // React Pagination
-  // const [pageNumber, setPageNumber] = useState(0);
-  // const itemsPerPage = 10;
-  // const pagesVisited = pageNumber * itemsPerPage;
-  // const displayItems = items.slice(pagesVisited, pagesVisited + itemsPerPage).map(item=>{
-  //   return
-  // })
-
   //state for update routes
 
   const [isPut, setIsPut] = useState(false);
@@ -39,24 +32,34 @@ const App = () => {
     description: "",
     id: "",
   });
+  const pages = new Array(numberOfPages).fill(null).map((v, i) => i);
 
   useEffect(() => {
-    fetch("http://localhost:3001/items")
+    fetch(`http://localhost:4000/items?page=${pageNumber}`)
       .then((res) => {
+        console.log("loading....");
         if (res.ok && res !== "") {
+          console.log(res);
           setLoading(true);
           return res.json();
         }
       })
-      .then((jsonRes) => setItems(jsonRes))
+      .then((jsonRes) => {
+        setItems(jsonRes.items);
+        setNumberOfPages(jsonRes.totalPages);
+      })
       .catch((err) =>
         console.log(err, toast.error("Error, something went wrong"))
       );
+  }, [items,pageNumber]);
 
-    // toast.warn("warn");
-    // toast.info("info");
-    // toast.error("error");
-  }, [items]);
+  const gotoPrevious = () => {
+    setPageNumber(Math.max(0, pageNumber - 1));
+  };
+
+  const gotoNext = () => {
+    setPageNumber(Math.min(numberOfPages - 1, pageNumber + 1));
+  };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -80,7 +83,7 @@ const App = () => {
       "Content-Type": "application/json",
       "Access-Control-Allow-Origin": "*",
     };
-    axios.post("http://localhost:3001/new-item", newItem, {
+    axios.post("http://localhost:4000/new-item", newItem, {
       headers: headers,
     });
     console.log(newItem);
@@ -95,7 +98,7 @@ const App = () => {
 
   // delete item
   const deleteItem = (id) => {
-    axios.delete("http://localhost:3001/delete/" + id);
+    axios.delete("http://localhost:4000/delete/" + id);
     alert("item deleted");
     console.log(`Deleted Item with : ${id}`);
   };
@@ -111,10 +114,11 @@ const App = () => {
   };
 
   const updateItem = (id) => {
-    axios.put("http://localhost:3001/put/" + id, updatedItem);
+    axios.put("http://localhost:4000/put/" + id, updatedItem);
     alert("item updated successfully");
     console.log(`item with id ${id} updated`);
     toast.success("Success, Items updated successfully");
+// navigate ('/')
   };
 
   const handleUpdate = (event) => {
@@ -132,6 +136,7 @@ const App = () => {
       <h1>
         <a href="/">CRUD</a>
       </h1>
+      <h3>Page of: {pageNumber + 1}</h3>
       {!isPut ? (
         <div>
           <input
@@ -174,15 +179,11 @@ const App = () => {
         </div>
       )}
 
-      {/*  */}
 
-      {/*  */}
       {loading ? (
         items.map((item) => {
           return (
             <div key={item._id} className="container">
-              {/* <p>{item.title}</p>
-            <p>{item.description}</p> */}
               <table id="tableContainer">
                 <tr>
                   <th>Title</th>
@@ -208,25 +209,13 @@ const App = () => {
       ) : (
         <Loader />
       )}
-      {/* <ReactPaginate
-        previousLabel={"previous"}
-        nextLabel={"next"}
-        breakLabel={"..."}
-        pageCount={6}
-        marginPagesDisplayed={2}
-        pageRangeDisplayed={3}
-        // onPageChange={handlePageClick}
-        containerClassName={"pagination justify-content-center"}
-        pageClassName={"page-item"}
-        pageLinkClassName={"page-link"}
-        previousClassName={"page-item"}
-        previousLinkClassName={"page-link"}
-        nextClassName={"page-item"}
-        nextLinkClassName={"page-link"}
-        breakClassName={"page-item"}
-        breakLinkClassName={"page-link"}
-        activeClassName={"active"}
-      /> */}
+      <button onClick={gotoPrevious}>previous</button>
+      {pages.map((pageIndex) => (
+        <button key={pageIndex} onClick={() => setPageNumber(pageIndex)}>
+          {pageIndex + 1}
+        </button>
+      ))}
+      <button onClick={gotoNext}>next</button>
     </div>
   );
 };

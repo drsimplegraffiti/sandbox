@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const morgan = require("morgan");
 
 mongoose.connect(
-  "",
+  "mongodb+srv://drsimplegraffiti:admin1234@godan.minj6.mongodb.net/godan-info?retryWrites=true&w=majority",
   {
     useUnifiedTopology: true,
     useNewUrlParser: true,
