@@ -6,9 +6,11 @@
     color: #fff;
     text-decoration: none;
 }
-.App h3{
-    color:#fff;
+
+.App h3 {
+    color: #fff;
 }
+
 .App-logo {
     height: 40vmin;
     pointer-events: none;
@@ -39,6 +41,7 @@
     from {
         transform: rotate(0deg);
     }
+
     to {
         transform: rotate(360deg);
     }
@@ -70,6 +73,12 @@ button {
     display: inline-block;
     font-size: 16px;
     border-radius: 5px;
+}
+
+button:hover {
+    background-color: hsl(189, 24%, 44%);
+    cursor: pointer;
+    border-color: white 2px solid;
 }
 
 .container {
@@ -166,6 +175,7 @@ input[type=text] {
     0% {
         transform: rotate(0deg);
     }
+
     100% {
         transform: rotate(360deg);
     }
@@ -173,3 +183,15 @@ input[type=text] {
 
 
 /*=========Loader ends  */
+
+
+.button-styles button {
+    padding: 12px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.button-styles button:hover {
+    background-color: tomato;
+}

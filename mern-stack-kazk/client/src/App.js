@@ -209,6 +209,7 @@ const App = () => {
       ) : (
         <Loader />
       )}
+      <div className="button-styles">
       <button onClick={gotoPrevious}>previous</button>
       {pages.map((pageIndex) => (
         <button key={pageIndex} onClick={() => setPageNumber(pageIndex)}>
@@ -216,6 +217,7 @@ const App = () => {
         </button>
       ))}
       <button onClick={gotoNext}>next</button>
+      </div>
     </div>
   );
 };
