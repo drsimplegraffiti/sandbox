@@ -1,17 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 
+
+
 .App {
     text-align: center;
-
+    margin: 30px auto;
 }
 
 .App h1 a {
     color: #fff;
     text-decoration: none;
     font-family: 'Raleway', sans-serif;
+    margin-bottom: 20px;
 }
 
-.App h3 {
+.App h4 {
     color: #fff;
     margin-top: 0;
     margin-bottom: 0;
@@ -53,9 +56,11 @@
     }
 }
 
+
+
 input {
-    height: 50px;
-    margin: 20px;
+    height: 40px;
+    margin: 20px auto;
     width: 50%;
     outline: none;
 }
@@ -71,6 +76,11 @@ input::placeholder {
     text-align: center;
     justify-content: center;
     align-items: center;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    font-size: 30px;
+    background-color: #bdbd3f;
 }
 
 button {
@@ -118,9 +128,7 @@ button:hover {
 }
 
 input[type=text] {
-    font-size: 30px !important;
     width: 100%;
-    padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
 }

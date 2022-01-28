@@ -10,6 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 const App = () => {
   const [pageNumber, setPageNumber] = useState(0);
   const [numberOfPages, setNumberOfPages] = useState(0);
+
   const [loading, setLoading] = useState(false);
   const [item, setItem] = useState({
     title: "",
@@ -137,9 +138,8 @@ const App = () => {
       <h1>
         <a href="/">ProgreX</a>
       </h1>
-      
       {!isPut ? (
-        <div>
+        <div className="main_input">
           <input
             name="title"
             onChange={handleChange}
@@ -154,8 +154,13 @@ const App = () => {
             placeholder="Enter description here...."
           />
           <br />
-          <h3>Page of: {pageNumber + 1}</h3>
-          <button className="add_btn" onClick={addItem}>Add<FaPlus /> </button>
+          
+
+        
+
+          
+          <h4>Page: {pageNumber + 1} of {numberOfPages}</h4>
+          <button className="add_btn" onClick={addItem}><FaPlus /> </button>
           <ToastContainer />
         </div>
       ) : (
@@ -165,7 +170,7 @@ const App = () => {
             name="title"
             onChange={handleUpdate}
             value={updatedItem.title}
-            placeholder="enter a title here...."
+            placeholder="Edit title here...."
           />
           <br />
           <input
@@ -173,14 +178,13 @@ const App = () => {
             onChange={handleUpdate}
             name="description"
             value={updatedItem.description}
-            placeholder="enter a description here...."
+            placeholder="Edit description...."
           />
           <br />
           <button onClick={() => updateItem(updatedItem.id)}>Update</button>
           <ToastContainer />
         </div>
       )}
-
 
       {loading ? (
         items.map((item) => {
@@ -190,14 +194,17 @@ const App = () => {
                 <tr>
                   <th>Title</th>
                   <th>Description</th>
+                  {/* <th>Date</th> */}
                   <th> Id</th>
                 </tr>
                 <tr>
                   <td>{item.title}</td>
                   <td>{item.description}</td>
+                  {/* <td>{item.createdAt.slice(0,10)}</td> */}
                   <td>{item._id.slice(0,6)}</td>
                 </tr>
               </table>
+              
               <button
                 className="deleteBtn"
                 onClick={() => deleteItem(item._id)}
