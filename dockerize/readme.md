@@ -32,6 +32,7 @@ node_modules
 .Dockerfile
 .dockerignore
 .git
+npm-debug.log
 ```
 
 ## Build
@@ -74,3 +75,6 @@ ADD . .
 CMD ["node", "index.js"]
 
 ```
+
+## reference link
+[here](https://nodejs.org/en/docs/guides/nodejs-docker-webapp/)
