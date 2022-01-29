@@ -239,4 +239,34 @@ Then re build the images again
 `FROM node:10.16.1-alpine`
 Then rebuild the images
 
-## Tagging images
+## Tagging
+
+docker tag nginx:alpine nodeapp:1
+
+## Docker registries type
+
+Private and Public
+
+## Docker provider
+
+Docker hub
+quay.io
+Amazon ECR
+
+To push images to docker hub
+go to docker hub > repositories > create repository
+`docker push drsimplegraffiti/node-app:tagname`
+To push you must be logged in
+
+`docker login`
+then docker push nodeapp:1
+
+## debugging docker
+
+`docker inspect container id`
+
+## view logs for containers
+
+`docker logs container id`
+
+docker exec -it container-id /bin/bash
