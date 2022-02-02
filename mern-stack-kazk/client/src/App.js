@@ -2,7 +2,13 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Loader from "./Loader";
-import {FaEdit, FaTimes, FaArrowLeft, FaArrowRight, FaPlus} from 'react-icons/fa';
+import {
+  FaEdit,
+  FaTimes,
+  FaArrowLeft,
+  FaArrowRight,
+  FaPlus,
+} from "react-icons/fa";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -53,7 +59,7 @@ const App = () => {
       .catch((err) =>
         console.log(err, toast.error("Error, something went wrong"))
       );
-  }, [items,pageNumber]);
+  }, [items, pageNumber]);
 
   const gotoPrevious = () => {
     setPageNumber(Math.max(0, pageNumber - 1));
@@ -120,7 +126,7 @@ const App = () => {
     alert("item updated successfully");
     console.log(`item with id ${id} updated`);
     toast.success("Success, Items updated successfully");
-// navigate ('/')
+    // navigate ('/')
   };
 
   const handleUpdate = (event) => {
@@ -145,6 +151,12 @@ const App = () => {
             onChange={handleChange}
             value={item.title}
             placeholder="Enter a title here...."
+            autoFocus
+            inputMode="text"
+            pattern="[A-Za-z0-9]"
+            spellCheck="true"
+            contentEditable
+            required
           />
           <br />
           <input
@@ -152,15 +164,22 @@ const App = () => {
             name="description"
             value={item.description}
             placeholder="Enter description here...."
+            inputMode="text"
+            pattern="[A-Za-z0-9]"
+            contentEditable
+            required
           />
           <br />
-          
-
-        
-
-          
-          <h4>Page: {pageNumber + 1} of {numberOfPages}</h4>
-          <button className="add_btn" onClick={addItem}><FaPlus /> </button>
+          <h4>
+            Page: {pageNumber + 1} of {numberOfPages}
+          </h4>
+          <div id="wrapper">
+            <h1 id="title"> Choose date to complete</h1>
+            <input type="date" />
+          </div>
+          <button className="add_btn" onClick={addItem}>
+            <FaPlus />{" "}
+          </button>
           <ToastContainer />
         </div>
       ) : (
@@ -171,6 +190,7 @@ const App = () => {
             onChange={handleUpdate}
             value={updatedItem.title}
             placeholder="Edit title here...."
+            contentEditable
           />
           <br />
           <input
@@ -179,6 +199,7 @@ const App = () => {
             name="description"
             value={updatedItem.description}
             placeholder="Edit description...."
+            contentEditable
           />
           <br />
           <button onClick={() => updateItem(updatedItem.id)}>Update</button>
@@ -201,17 +222,19 @@ const App = () => {
                   <td>{item.title}</td>
                   <td>{item.description}</td>
                   {/* <td>{item.createdAt.slice(0,10)}</td> */}
-                  <td>{item._id.slice(0,6)}</td>
+                  <td>{item._id.slice(0, 6)}</td>
                 </tr>
               </table>
-              
+
               <button
                 className="deleteBtn"
                 onClick={() => deleteItem(item._id)}
               >
                 <FaTimes />
               </button>
-              <button onClick={() => openUpdate(item._id)}><FaEdit /></button>
+              <button onClick={() => openUpdate(item._id)}>
+                <FaEdit />
+              </button>
             </div>
           );
         })
@@ -219,13 +242,17 @@ const App = () => {
         <Loader />
       )}
       <div className="button-styles">
-      <button onClick={gotoPrevious}><FaArrowLeft /></button>
-      {pages.map((pageIndex) => (
-        <button key={pageIndex} onClick={() => setPageNumber(pageIndex)}>
-          {pageIndex + 1}
+        <button onClick={gotoPrevious}>
+          <FaArrowLeft />
         </button>
-      ))}
-      <button onClick={gotoNext}><FaArrowRight /></button>
+        {pages.map((pageIndex) => (
+          <button key={pageIndex} onClick={() => setPageNumber(pageIndex)}>
+            {pageIndex + 1}
+          </button>
+        ))}
+        <button onClick={gotoNext}>
+          <FaArrowRight />
+        </button>
       </div>
     </div>
   );

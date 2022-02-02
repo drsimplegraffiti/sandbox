@@ -9,9 +9,9 @@ const SearchFilter = () => {
       <input
         type="text"
         placeholder="enter search term ....."
-        onChange={(event) => {
-          setSearchTerm(event.target.value);
-        }}
+          onChange={(event) => {
+            setSearchTerm(event.target.value);
+          }}
       />
       {JSONDATA.filter((val) => {
         if (searchTerm === "") {

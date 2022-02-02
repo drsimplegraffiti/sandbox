@@ -259,3 +259,14 @@ input[type=text] {
         width: 320px;
     }
 }
+
+/* ===DATE */
+#wrapper {
+    text-align: center;
+max-width: 400px; 
+margin: auto; }
+  
+  #title {
+    margin-bottom: 20px;
+    color: #fff;
+  }
