@@ -1,0 +1,2 @@
+to read files from the terminal 
+cat package.json

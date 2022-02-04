@@ -1,0 +1,15 @@
+<!-- XML = extensible Markup Language -->
+
+
+<friendsList>
+    <friend>
+        <name>Timi</name>
+    </friend> 
+    <friend>
+        <name>Tope</name>
+    </friend> 
+    <friend>
+        <name>Dele</name>
+    </friend> 
+    <bestFriend>Miracle</bestFriend>
+</friendsList>
