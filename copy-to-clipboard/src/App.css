@@ -1,0 +1,40 @@
+.App {
+  text-align: center;
+  background-color: #c0c1c0;
+}
+
+.pallet-section {
+  display: flex;
+  justify-content: space-around;
+  width: 300px;
+  margin: auto;
+  padding: 20px;
+}
+
+.pallet {
+  background-color: #fff;
+  border-radius: 2px;
+  width: 60px;
+  height: 80px;
+  padding: 5px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.color {
+  background-color: #a2d5ff;
+  border-radius: 2px;
+  width: 60px;
+  height: 60px;
+}
+
+
+.color small {
+  color: #fff;
+}
+
+.color-code {
+  color: grey;
+  font-size: 11px;
+  margin-top: 5px;
+}
