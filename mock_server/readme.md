@@ -3,7 +3,7 @@
 ```javascript
 FROM node:12.18.1
 ENV NODE_ENV=production
-
+ENV PORT=8080  //i.e if you have a port as an Env
 WORKDIR /app
 
 COPY ["package.json", "package-lock.json*", "./"]
