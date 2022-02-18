@@ -99,10 +99,18 @@ app.put("/put/:id", (req, res) => {
   );
 });
 
+//delete all
+app.delete("/clear/all", async (req, res) => {
+  try {
+    const deleteAll = await Item.deleteMany();
+    res.status(200).json("all db cleared");
+  } catch (error) {
+    console.log(error);
+  }
+});
 
-
-app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, './client/build', 'index.html'));
+app.get("/", function (req, res) {
+  res.sendFile(path.join(__dirname, "./client/build", "index.html"));
 });
 
 // HEROKU LOGIN

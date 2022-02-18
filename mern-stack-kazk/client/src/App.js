@@ -1,4 +1,5 @@
 import "./App.css";
+import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Loader from "./Loader";
@@ -77,7 +78,6 @@ const App = () => {
         [name]: value,
       };
     });
-    console.log(item);
   };
 
   // Add Item
@@ -108,9 +108,14 @@ const App = () => {
   const deleteItem = (id) => {
     axios.delete("/delete/" + id);
     alert("item deleted");
-    console.log(`Deleted Item with : ${id}`);
   };
 
+  //delete All Items
+  const deleteAllItems = () => {
+    axios.delete("/clear/all");
+    setItem([]);
+    toast.success("All items cleared");
+  };
   const openUpdate = (id) => {
     setIsPut(true);
     setUpdatedItem((prevInput) => {
@@ -124,7 +129,6 @@ const App = () => {
   const updateItem = (id) => {
     axios.put("/put/" + id, updatedItem);
     alert("item updated successfully");
-    console.log(`item with id ${id} updated`);
     toast.success("Success, Items updated successfully");
     // navigate ('/')
   };
@@ -137,13 +141,15 @@ const App = () => {
         [name]: value,
       };
     });
-    console.log(updatedItem);
   };
+
+  const date = new Date();
   return (
     <div className="App">
       <h1>
         <a href="/">ProgreX</a>
       </h1>
+
       {!isPut ? (
         <div className="main_input">
           <input
@@ -160,6 +166,7 @@ const App = () => {
           />
           <br />
           <input
+            className="expand-input"
             onChange={handleChange}
             name="description"
             value={item.description}
@@ -174,12 +181,18 @@ const App = () => {
             Page: {pageNumber + 1} of {numberOfPages}
           </h4>
           <div id="wrapper">
-            <h1 id="title"> Choose date to complete</h1>
-            <input type="date" />
+            <p style={{ color: "white" }}> {date.toUTCString()}</p>
           </div>
-          <button className="add_btn" onClick={addItem}>
+          <div className="clear-all">
+            <button onClick={deleteAllItems}>Clear </button>
+          </div>
+          <motion.button
+            whileTap={{ scale: 0.9 }}
+            className="add_btn"
+            onClick={addItem}
+          >
             <FaPlus />{" "}
-          </button>
+          </motion.button>
           <ToastContainer />
         </div>
       ) : (

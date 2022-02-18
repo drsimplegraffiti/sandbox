@@ -57,12 +57,23 @@
 }
 
 
+.clear-all {
+    margin-top: 0;
+    margin: 0 65%;
+    margin-top: -5.6%;
+
+}
+
 
 input {
     height: 40px;
     margin: 20px auto;
     width: 50%;
     outline: none;
+}
+
+.expand-input {
+    height: 120px;
 }
 
 input::placeholder {
@@ -263,10 +274,11 @@ input[type=text] {
 /* ===DATE */
 #wrapper {
     text-align: center;
-max-width: 400px; 
-margin: auto; }
-  
-  #title {
+    max-width: 400px;
+    margin: auto;
+}
+
+#title {
     margin-bottom: 20px;
     color: #fff;
-  }
+}

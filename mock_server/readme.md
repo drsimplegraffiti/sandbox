@@ -30,3 +30,19 @@ CMD [ "node", "server.js" ]
 ## Remove tag on images
 
 > docker rmi node-docker:v1.0.0
+
+## Create a new volume
+
+> docker volume create [name of volume to be created]
+> docker volume create node-config
+
+## Mount volume
+
+<!-- And then, when you go to run your Docker container, link it to the target in the container with the --mount flag: -->
+
+```javascript
+docker run -d \
+--name devtest \
+--mount source=nginx-config,target=/etc/nginx \
+nginx:latest
+```
