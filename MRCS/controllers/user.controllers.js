@@ -19,6 +19,7 @@ exports.getUsers = async function (req, res, next) {
 
 exports.createUser = async function (req, res, next) {
   try {
+    const { name, age, password } = req.body;
     const user = await UserService.createUser(req.body);
     return res.status(201).json({
       user,
