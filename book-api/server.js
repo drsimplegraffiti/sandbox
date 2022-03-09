@@ -9,9 +9,7 @@ router.post("/create", async (req, res) => {
       message: "Request body cannot be empty",
     });
   }
-
   const { title, author, publisher, read } = req.body;
-
   const book = await create({ title, author, publisher, read });
 
   if (book.error) {
@@ -19,7 +17,6 @@ router.post("/create", async (req, res) => {
       message: book.error,
     });
   }
-
   res.status(201).json({
     message: "New book record created",
   });
@@ -27,15 +24,12 @@ router.post("/create", async (req, res) => {
 
 router.get("/read-all", async (req, res) => {
   const books = await readAll();
-
   if (books.error) {
     res.status(500).json({
       message: error.message,
-
       books: books.data,
     });
   }
-
   res.status(200).json({
     message: "success",
 
@@ -45,7 +39,6 @@ router.get("/read-all", async (req, res) => {
 
 router.get("/read-one/:bookID", async (req, res) => {
   const book = await readOne(req.params.bookID);
-
   if (book.error) {
     res.status(500).json({
       message: book.error,
