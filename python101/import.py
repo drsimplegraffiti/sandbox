@@ -6,4 +6,4 @@ print(math.ceil(3.8))
 print(math.floor(3.8))
 
 print(os.getcwd())
-print(os.listdir())
+# print(os.listdir())

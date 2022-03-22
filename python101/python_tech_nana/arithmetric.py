@@ -8,12 +8,10 @@ print(2**2)
 a = "Big boy"  # Assigning value
 print(a)
 
-
 height = 6
 width = 7
 Total = height * width
 print(Total)
-
 
 # Float
 tax = 3.5
@@ -31,14 +29,12 @@ b = "boy"
 c = a+b
 print(c)
 
-
 # Indexing
 word = "lovely you"
 output = word[2]
 output1 = word[-1]
 print(output)
 print(output1)
-
 
 # Slicing
 game = "basketball"
@@ -51,7 +47,6 @@ word = "shooting"
 
 create = "j" + word
 print(create)
-
 
 # len
 long_word = "successful in all ways"
